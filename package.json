@@ -1,0 +1,16 @@
+{
+  "name": "nestjs-common-override",
+  "version": "1.0.0",
+  "description": "This package is used to be able to use @motivapp/error inside the @motivapp/mobile repo without any issues.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
