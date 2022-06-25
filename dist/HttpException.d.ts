@@ -1,7 +1,3 @@
-export declare const isString: (val: any) => val is string;
-export declare const isUndefined: (obj: any) => obj is undefined;
-export declare const isNil: (val: any) => val is null;
-export declare const isObject: (fn: any) => fn is object;
 /**
  * Defines the base Nest HTTP exception, which is handled by the default
  * Exceptions Handler.

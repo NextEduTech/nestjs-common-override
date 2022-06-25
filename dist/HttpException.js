@@ -1,14 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HttpException = exports.isObject = exports.isNil = exports.isUndefined = exports.isString = void 0;
+exports.HttpException = void 0;
 const isString = (val) => typeof val === 'string';
-exports.isString = isString;
 const isUndefined = (obj) => typeof obj === 'undefined';
-exports.isUndefined = isUndefined;
-const isNil = (val) => (0, exports.isUndefined)(val) || val === null;
-exports.isNil = isNil;
-const isObject = (fn) => !(0, exports.isNil)(fn) && typeof fn === 'object';
-exports.isObject = isObject;
+const isNil = (val) => isUndefined(val) || val === null;
+const isObject = (fn) => !isNil(fn) && typeof fn === 'object';
 /**
  * Defines the base Nest HTTP exception, which is handled by the default
  * Exceptions Handler.
@@ -51,11 +47,11 @@ class HttpException extends Error {
         this.initName();
     }
     initMessage() {
-        if ((0, exports.isString)(this.response)) {
+        if (isString(this.response)) {
             this.message = this.response;
         }
-        else if ((0, exports.isObject)(this.response) &&
-            (0, exports.isString)(this.response.message)) {
+        else if (isObject(this.response) &&
+            isString(this.response.message)) {
             this.message = this.response.message;
         }
         else if (this.constructor) {
@@ -77,7 +73,7 @@ class HttpException extends Error {
         if (!objectOrError) {
             return { statusCode, message: description };
         }
-        return (0, exports.isObject)(objectOrError) && !Array.isArray(objectOrError)
+        return isObject(objectOrError) && !Array.isArray(objectOrError)
             ? objectOrError
             : { statusCode, message: objectOrError, error: description };
     }
