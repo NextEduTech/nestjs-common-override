@@ -1,4 +1,4 @@
-import { HttpException } from "../src/HttpException";
+import { HttpException } from "./HttpException";
 
 export {
     HttpException,
